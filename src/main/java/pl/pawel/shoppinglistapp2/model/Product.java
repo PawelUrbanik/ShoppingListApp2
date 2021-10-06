@@ -1,9 +1,6 @@
 package pl.pawel.shoppinglistapp2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,13 +9,15 @@ public class Product implements Serializable {
 
 
     @Id
+    @Column(name = "product_id")
     private Integer id;
     private String name;
-    private Integer listId;
+    @ManyToOne()
+    @JoinColumn(name = "list_id", nullable = false )
+    private ShoppingList list;
     private boolean bought;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne
     private User addedBy;
     private int count;
 
@@ -43,12 +42,12 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public Integer getListId() {
-        return listId;
+    public ShoppingList getList() {
+        return list;
     }
 
-    public void setListId(Integer listId) {
-        this.listId = listId;
+    public void setList(ShoppingList list) {
+        this.list = list;
     }
 
     public boolean isBought() {
@@ -80,11 +79,11 @@ public class Product implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return bought == product.bought && count == product.count && Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(listId, product.listId) && Objects.equals(addedBy, product.addedBy);
+        return bought == product.bought && count == product.count && Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(list, product.list) && Objects.equals(addedBy, product.addedBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, listId, bought, addedBy, count);
+        return Objects.hash(id, name, list, bought, addedBy, count);
     }
 }
