@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.pawel.shoppinglistapp2.model.ShoppingList;
 
 @Repository
-public interface ShoppingListRepository extends JpaRepository<ShoppingList, Integer> {
+public interface ShoppingListRepository extends JpaRepository<ShoppingList, Long> {
 }

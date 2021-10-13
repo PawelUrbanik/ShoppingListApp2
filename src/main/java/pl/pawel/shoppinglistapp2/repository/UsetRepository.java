@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.pawel.shoppinglistapp2.model.User;
 
 @Repository
-public interface UsetRepository extends JpaRepository<User, Integer> {
+public interface UsetRepository extends JpaRepository<User, Long> {
 }
