@@ -1,0 +1,17 @@
+<p>product-list works!</p>
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">count</th>
+      <th scope="col">bought</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name}}</td>
+      <td>{{product.count}}</td>
+      <td>{{product.bought}}</td>
+    </tr>
+    </tbody>
+  </table>
