@@ -21,6 +21,10 @@ public class Product implements Serializable {
     private ShoppingList list;
     private boolean bought;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProductCategory category;
+
     @OneToOne
     private User addedBy;
     private int count;

@@ -7,12 +7,18 @@ import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./services/user.service";
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { ShoppingListService } from './services/shopping-list.service';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ProductCategoryService } from './services/product-category.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ShoppingListComponent,
+    ProductCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,9 @@ import { ProductService } from './services/product.service';
   ],
   providers: [
     UserService,
-    ProductService
+    ProductService,
+    ShoppingListService,
+    ProductCategoryService
   ],
   bootstrap: [AppComponent]
 })

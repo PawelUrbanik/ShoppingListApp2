@@ -1,0 +1,15 @@
+<p>shoppingList-list works!</p>
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Desc</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let shoppingList of shoppingLists">
+      <td>{{shoppingList.name}}</td>
+      <td>{{shoppingList.description}}</td>
+    </tr>
+    </tbody>
+  </table>

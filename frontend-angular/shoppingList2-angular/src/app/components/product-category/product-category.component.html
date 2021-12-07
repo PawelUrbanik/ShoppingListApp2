@@ -1,0 +1,16 @@
+<p>product-category works!</p>
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let productCategory of productCategories">
+      <td>{{productCategory.categoryName}}</td>
+      <td class="align-middle">
+          <img src="{{productCategory.imageUrl}}" alt="images" width="35px" height="30px"></td>
+    </tr>
+    </tbody>
+  </table>
