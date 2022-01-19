@@ -2,7 +2,6 @@ package pl.pawel.shoppinglistapp2.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

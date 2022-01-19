@@ -1,15 +1,11 @@
-<p>shoppingList-list works!</p>
-<table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Desc</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let shoppingList of shoppingLists">
-      <td>{{shoppingList.name}}</td>
-      <td>{{shoppingList.description}}</td>
-    </tr>
-    </tbody>
-  </table>
+
+<app-product-list-menu></app-product-list-menu>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="row"><br><br><br><br></div>
+</div>
