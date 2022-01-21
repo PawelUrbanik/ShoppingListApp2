@@ -32,4 +32,13 @@ public class Product implements Serializable {
 
     public Product() {
     }
+
+    public Product(String name, boolean bought, ProductCategory category, User addedBy, int count, ShoppingList list) {
+        this.name = name;
+        this.bought = bought;
+        this.category = category;
+        this.addedBy = addedBy;
+        this.count = count;
+        this.list = list;
+    }
 }
