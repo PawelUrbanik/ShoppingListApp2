@@ -1,0 +1,9 @@
+<div class="col-sm-2">
+    <div class="menu-sidebar">
+        <div *ngFor="let tempProductList of productLists">
+            <div class="link text" routerLink="/list/{{tempProductList.id}}" routerLinkActive="active-link">
+                {{ tempProductList.name}}
+            </div>
+        </div>
+    </div>
+</div>
