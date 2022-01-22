@@ -13,8 +13,10 @@ import { ProductCategoryComponent } from './components/product-category/product-
 import { ProductCategoryService } from './services/product-category.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListMenuComponent } from './components/product-list-menu/product-list-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
+  {path: 'search/:keyword', component: ProductListComponent},
   {path: 'list/:id', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'user', component: UserListComponent},
@@ -29,7 +31,8 @@ const routes: Routes = [
     ProductListComponent,
     ShoppingListComponent,
     ProductCategoryComponent,
-    ProductListMenuComponent
+    ProductListMenuComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

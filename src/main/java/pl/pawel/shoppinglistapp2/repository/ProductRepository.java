@@ -13,4 +13,6 @@ import pl.pawel.shoppinglistapp2.model.Product;
 public interface ProductRepository  extends JpaRepository<Product, Integer> {
 
     Page<Product> findAllByListId(@RequestParam("id") Long id, Pageable pageable);
+
+    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 }

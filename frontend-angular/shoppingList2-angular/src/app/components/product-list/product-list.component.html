@@ -1,4 +1,4 @@
-<p>product-list works!</p>
+<app-search></app-search>
 <table class="table">
     <thead>
     <tr>
@@ -14,4 +14,9 @@
       <td>{{product.bought}}</td>
     </tr>
     </tbody>
+ 
   </table>
+     <!-- Jeśli pusta lista-->
+     <div *ngIf="products?.length == 0" class="alert alert-warning" role="alert" style="text-align: center;">
+      Nie znaleziono produktów
+    </div>

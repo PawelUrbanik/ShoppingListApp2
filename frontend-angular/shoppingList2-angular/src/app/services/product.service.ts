@@ -9,19 +9,18 @@ import { ProductList } from '../common/product-list';
   providedIn: 'root'
 })
 export class ProductService {
-  
+
 
   private url = 'http://localhost:8080/api/products';
   private urlLists = 'http://localhost:8080/api/shoppingLists';
 
   constructor(private httpClient: HttpClient) { }
-  
+
 
   getProducts(theListId: number): Observable<Product[]> {
     const searchUrl = `${this.url}/search/findAllByListId?id=${theListId}`
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products)
-    )
+    return this.getProductsByUrl(searchUrl);
+
   }
 
   getProductLists(): Observable<ProductList[]> {
@@ -29,16 +28,26 @@ export class ProductService {
       map(response => response._embedded.shoppingLists)
     )
   }
-  
-}
-interface GetResponseProducts {
-    _embedded: {
-      products: Product[];
-    }
+  searchProducts(theKeyword: string): Observable<Product[]> {
+    const searchUrl = `${this.url}/search/findByNameContaining?name=${theKeyword}`;
+    return this.getProductsByUrl(searchUrl);
   }
 
-  interface GetResponseProductList {
-    _embedded: {
-      shoppingLists: ProductList[];
-    }
+
+  private getProductsByUrl(searchUrl: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    );
   }
+}
+interface GetResponseProducts {
+  _embedded: {
+    products: Product[];
+  }
+}
+
+interface GetResponseProductList {
+  _embedded: {
+    shoppingLists: ProductList[];
+  }
+}
